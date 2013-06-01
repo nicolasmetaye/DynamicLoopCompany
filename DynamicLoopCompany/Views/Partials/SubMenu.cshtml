@@ -1,0 +1,18 @@
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<DynamicLoopCompany.Components.Models.SubMenu.SubMenuModel>
+@{
+    Layout = null;
+}
+<h2 class="menu-link">@Model.Title</h2>
+<ul class="navigation">
+    @{
+        var index = 1;
+        var totalItems = Model.Items.Count;
+        foreach (var item in Model.Items)
+        {
+            <li class="@(item.IsSelected ? "selected" : string.Empty) @(index == totalItems ? "last" : string.Empty)">
+                <a href="@item.Url">@item.Title</a>
+            </li>
+            index++;
+        }
+    }
+</ul>

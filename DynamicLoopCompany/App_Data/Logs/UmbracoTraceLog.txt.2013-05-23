@@ -1,0 +1,7 @@
+2013-05-23 09:05:32,940 [183] INFO  Umbraco.Core.PluginManager - [Thread 89] Completed resolution of types of umbraco.interfaces.IDataType, found 35 (took 5ms)
+2013-05-23 09:05:43,414 [183] INFO  Umbraco.Core.Publishing.PublishingStrategy - [Thread 41] Content 'Who we are' with Id '1127' has been published.
+2013-05-23 09:05:43,534 [183] ERROR umbraco.presentation.nodeFactory.UmbracoSiteMapProvider - [Thread 41] Error adding node 1122 to SiteMapProvider in loadNodes()
+System.InvalidOperationException: Multiple nodes with the same URL '/' were found. XmlSiteMapProvider requires that sitemap nodes have unique URLs.
+   at System.Web.StaticSiteMapProvider.AddNode(SiteMapNode node, SiteMapNode parentNode)
+   at umbraco.presentation.nodeFactory.UmbracoSiteMapProvider.loadNodes(String parentId, SiteMapNode parentNode)
+2013-05-23 09:05:43,669 [183] INFO  umbraco.content - [Thread 42] Loading content from database...

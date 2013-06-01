@@ -1,0 +1,40 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<DynamicLoopCompany.Components.Models.ContentInteractiveImage.ContentInteractiveImageModel>
+@{
+    Layout = null;
+}
+
+<div class="about-drawing-container">
+    <div class="about-drawing-left">
+        <img src="@Model.Image" usemap="#interactiveImageMap" alt="About"/>
+        <map name="interactiveImageMap">
+            @{
+                var index = 0;
+                foreach (var item in Model.Items)
+                {
+                    <area id="area@(index)" class="about-map-area" shape="rect" coords="@item.TopLeftX,@item.TopLeftY,@item.BottomRightX,@item.BottomRightY" alt="@item.Title" />
+                    index++;
+                }
+            }
+        </map>
+        <div class="clear-all"></div>
+    </div>
+    <div class="about-drawing-right">
+        <div class="about-drawing-explanations">@Model.ExplanationsText</div>
+        @{
+            var popupIndex = 0;
+            foreach (var popupItem in Model.Items)
+            {
+                <div id="popup@(popupIndex)" class="about-drawing-popup">
+                    <h2>@popupItem.Title:</h2>
+                    <div class="about-drawing-popup-text">@Html.Raw(popupItem.BodyText)</div>
+                </div>
+                popupIndex++;
+            }   
+        }
+    </div>
+</div>
+<div class="clear-all"></div>
+<div class="about-footer">
+    @Html.Raw(Model.FooterText)
+</div>
+<div class="clear-all"></div>

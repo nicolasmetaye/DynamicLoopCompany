@@ -1,0 +1,13 @@
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<DynamicLoopCompany.Components.Models.Master.MainMenuModel>
+@{
+    Layout = null;
+}
+<ul class="navigation">
+     @foreach (var menuItem in Model.Items)
+     {
+         <li class="@(menuItem.Link == "/" ? "home" : string.Empty) @(menuItem.IsSelected ? "selected" : string.Empty)">
+		    <a href="@menuItem.Link"><span class="@(menuItem.Link == "/" ? "hidden" : string.Empty)">@menuItem.Title</span></a>
+	    </li>
+     }
+	<div class="clear-all"></div>
+</ul>

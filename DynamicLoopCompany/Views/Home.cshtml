@@ -1,0 +1,18 @@
+﻿@using DynamicLoopCompany.Components.Models.Home
+@using AutoMapper
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+    var interactiveTextModel = Mapper.Map<IPublishedContent, InteractiveTextModel>(Model.Content);
+}
+
+@section Header
+{
+    <script src="/scripts/interactivetext.js" type="text/javascript"></script>
+}
+
+<div id="oneColumnContent">
+	<div>
+		@Html.Partial("InteractiveText", interactiveTextModel)
+	</div>
+</div>

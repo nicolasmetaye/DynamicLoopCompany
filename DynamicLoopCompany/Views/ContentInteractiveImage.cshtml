@@ -1,0 +1,16 @@
+﻿@using DynamicLoopCompany.Components.Models.ContentInteractiveImage
+@using AutoMapper
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+    var interactiveImageModel = Mapper.Map<IPublishedContent, ContentInteractiveImageModel>(Model.Content);
+}
+
+@section Header
+{
+    <script src="/scripts/interactiveimage.js" type="text/javascript"></script>
+}
+
+<div class="content-main-container">
+    @Html.Partial("ContentInteractiveImage", interactiveImageModel)
+</div>

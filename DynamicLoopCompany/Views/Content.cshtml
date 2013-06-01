@@ -1,0 +1,13 @@
+﻿@using DynamicLoopCompany.Components.Models.Content
+@using AutoMapper
+@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+@{
+    Layout = "Master.cshtml";
+	var contentModel = Mapper.Map<IPublishedContent, ContentModel>(Model.Content);
+}
+
+<div id="oneColumnContent">
+	<div>
+		@Html.Partial("Content", contentModel)
+	</div>
+</div>

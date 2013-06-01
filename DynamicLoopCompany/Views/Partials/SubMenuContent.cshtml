@@ -1,0 +1,9 @@
+@inherits Umbraco.Web.Mvc.UmbracoViewPage<DynamicLoopCompany.Components.Models.Content.ContentModel>
+@{
+    Layout = null;
+}
+
+<div>
+	<h1>@Model.Title</h1>
+	@Html.Raw(Model.BodyText)
+</div>
